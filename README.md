@@ -14,6 +14,9 @@ For this week's challenge I have to create a webpage that can display the weathe
 * THEN I am again presented with current and future conditions for that city
 
  ## Work completed
+ * Created html with Boostrap structure 
+ * Register for Weather API key from https://openweathermap.org/forecast5
+ 
 
 
  ## Website 
