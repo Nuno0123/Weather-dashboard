@@ -10,4 +10,14 @@ var getCurrentConditions = (event) => {
     .then((response) => {
         return response.json();
     })
+    .then((response) => {
+        saveCity(city);
+
+        let currentWeather="https://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+        let currentTimeUTC = response.dt;
+        let currentTimeZoneOffset = response.timezone;
+        let currentTimeZoneOffsetHours = currentTimeZoneOffset / 60 / 60;
+        let currentMoment = moment.unix(currentTimeUTC).utc().utcOffset(currentTimeZoneOffsetHours);
+        renderCities();
+    })
 }
