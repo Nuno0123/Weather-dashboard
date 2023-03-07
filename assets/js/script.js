@@ -45,8 +45,45 @@ var getCurrentConditions = (event) => {
                 $("#uvVal").attr("class", "uv-favorable");
             } else if (uvIndex>=3 && uvIndex<8){
                 $("#uvVal").attr("class", "uv-moderate");
+            } else if (uvIndex>=8){
+                $("uvVal").attr("class", "uv-severe");
             }
         });
     })
 }
 
+var getFiveDayForecast = (event) => {
+    let city = $("search-city").val();
+    let queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial" + "&APPID=cc733cca9c27c80fae216f34f9353377"
+    fetch(queryURL)
+        .then((response) => {
+            return response.json();
+        })
+        .then((response) => {
+            let fiveDayForecastHTML = `
+            <h2>5-Day Forecast:</h2>
+            <div id="fiveDayForecastUl" class="d-inline-flex flex-wrap ">`;
+            for (let i = 0; i < response.list.length; i++) {
+                let dayData = response.list[i];
+                let dayTimeUTC = dayData.dt;
+                let currentTimeZoneOffset = response.city.timezone;
+                let currentTimeZoneOffsetHours = currentTimeZoneOffset / 60 / 60;
+                let thisMoment = moment.unix(dayTimeUTC).utc().utcOffset(currentTimeZoneOffsetHours);
+                let iconURL = "https://openweathermap.org/img/w/" + dayData.weather[0].icon + ".png";
+                if (thisMoment.format("HH:mm:ss") === "11:00:00" || thisMoment.format("HH:mm:ss") === "12:00:00" || thisMoment.format("HH:mm:ss") === "13:00:00") {
+                    fiveDayForecastHTML += `
+                    <div class="weather-card card m-2 p0">
+                    <ul class="list-unstyled p-3">
+                        <li>${thisMoment.format("MM/DD/YY")}</li>
+                        <li class="weather-icon"><img src="${iconURL}"></li>
+                        <li>Temp: ${dayData.main.temp}&#8457;</li>
+                        <br>
+                        <li>Humidity: ${dayData.main.humidity}%</li>
+                    </ul>
+                </div>`;
+                }
+            }
+            fiveDayForecastHTML += `</div>`;
+            $("#five-day-forecast").html(fiveDayForecastHTML)
+        })
+}
