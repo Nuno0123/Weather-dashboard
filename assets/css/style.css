@@ -1,8 +1,8 @@
 #header{
+    background-color: #ae86b5;
     background-size: cover;
     background-position-y: 40%;
     color: whitesmoke;
-    background-color: rgb(red, green, blue);
     position:relative !important;
 }
 
@@ -14,21 +14,20 @@
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
-    text-shadow: 0% 3% 3% rgba(red, green, blue, alpha);
-}
-
-.jumbotron{
-    padding: 1 rem;
-    border-radius: 0;
 }
 
 #search-city{
     width:80%;
 }
 
-#search-button-icon{
-    width: 15%;
-    display: inline-block;
+.btn-primary {
+    background-color: #ae86b5;
+    border-color: #ae86b5;
+}
+
+.list-group-item.active {
+    background-color: #ae86b5;
+    border-color: #ae86b5;
 }
 
 #current-weather{
@@ -36,7 +35,7 @@
 }
 
 #clear-storage{
-    color:gray;
+    color:#ae86b5;
     text-decoration: none;
     font-size: .75em;
     margin: .5em 0em 0em .5em;
@@ -44,26 +43,14 @@
 
 .weather-card{
     width: 9rem;
-    background-color: #0275d8;
+    background-color: #ae86b5;
     color: whitesmoke;
     text-align: center;
 }
 
-.uv-favorable{
-    background-color: green;
-    border-radius: 5%;
-    color: white;
-}
 
-.uv-moderate{
-    background-color: orange;
-    border-radius: 5%;
-    color: white;
-}
 
-.uv-severe{
-    background-color: red;
-    border-radius: 5%;
-    color: white;
-}
+
+
+
 
