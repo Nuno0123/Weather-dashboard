@@ -16,12 +16,16 @@ For this week's challenge I have to create a webpage that can display the weathe
  ## Work completed
  * Created html with Boostrap structure 
  * Register for Weather API key from https://openweathermap.org/forecast5
+ * Got API working for website as far as fetching the information needed
+ * Created search box and button, link javascript to automatically search my area which is Hartford CT, if you search another city it'll work as well
+ * Created fetches through js to make webpage functional and provide the weather forecast for the next 5 days, this was provided from the information we fetched from the weather API
  
+
 
 
  ## Website 
 
  ## Screenshot
-![screenshot]
+![screenshot](/assets/img/_Users_nestormontanez_bootcamp_Weather-dashboard_index.html%20(1).png)
  # Contact
  [Nestor Montañez on Github](https://github.com/Nuno0123)
